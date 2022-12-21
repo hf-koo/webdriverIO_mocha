@@ -1,10 +1,32 @@
 import HomePage from "../pages/home-page";
 
 describe("Home", () => {
-  it("Open URL & assert title", async () => {
+  // before(async () => {
+  //   console.log("This could be used for test setup");
+  // });
+
+  beforeEach(async () => {
+    console.log("This runs before each test");
+
     //Open URL
-    // await browser.url("https://practice.automationbro.com/");
     await HomePage.open();
+  });
+
+  // after(async () => {
+  //   console.log("This could be used for test cleanup");
+  // });
+
+  // afterEach(async () => {
+  //   console.log("This runs after each test");
+
+  //   //Open URL
+  //   await HomePage.open();
+  // });
+
+  it("Open URL & assert title", async () => {
+    before(async () => {
+      console.log("This could be used for test setup");
+    });
 
     // Assert title
     await expect(browser).toHaveTitle(
@@ -12,7 +34,7 @@ describe("Home", () => {
     );
   });
 
-  it("Open URL & assert URL", async () => {
+  it("Open About Page & assert URL", async () => {
     //Open URL
     await browser.url("https://practice.automationbro.com/about/");
 
@@ -23,10 +45,6 @@ describe("Home", () => {
   });
 
   it("Click get started btn & assert url contains get-started text", async () => {
-    //Open URL
-    // await browser.url("https://practice.automationbro.com");
-    await HomePage.open();
-
     //Click get started button
     // await $("#get-started").click();
     await HomePage.btnGetStarted.click();
@@ -48,10 +66,6 @@ describe("Home", () => {
   });
 
   it("Find heading element & assert the text", async () => {
-    //Open URL
-    // await browser.url("https://practice.automationbro.com");
-    await HomePage.open();
-
     //find heading element
     // const headingEl = await $(".elementor-widget-container h1");
     const headingEl = await HomePage.txtHeading;

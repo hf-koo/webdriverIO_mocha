@@ -1,3 +1,4 @@
+import { faker } from "@faker-js/faker";
 import ContactPage from "../pages/contact-page";
 
 describe("Contact", () => {
