@@ -1,9 +1,10 @@
-// https://practice.automationbro.com/
+import HomePage from "../pages/home-page";
 
 describe("Home", () => {
   it("Open URL & assert title", async () => {
     //Open URL
-    await browser.url("https://practice.automationbro.com/");
+    // await browser.url("https://practice.automationbro.com/");
+    await HomePage.open();
 
     // Assert title
     await expect(browser).toHaveTitle(
@@ -23,10 +24,12 @@ describe("Home", () => {
 
   it("Click get started btn & assert url contains get-started text", async () => {
     //Open URL
-    await browser.url("https://practice.automationbro.com");
+    // await browser.url("https://practice.automationbro.com");
+    await HomePage.open();
 
     //Click get started button
-    await $("#get-started").click();
+    // await $("#get-started").click();
+    await HomePage.btnGetStarted.click();
 
     // Assert url contains get-started text
     await expect(browser).toHaveUrlContaining("get-started");
@@ -37,7 +40,8 @@ describe("Home", () => {
     await browser.url("https://practice.automationbro.com/about/");
 
     //Click logo
-    await $('//img[@alt="Practice E-Commerce Site"]').click();
+    // await $('//img[@alt="Practice E-Commerce Site"]').click();
+    await HomePage.imageLogo.click();
 
     // Assert url does not contains get-started text
     await expect(browser).not.toHaveUrlContaining("get-started");
@@ -45,10 +49,12 @@ describe("Home", () => {
 
   it("Find heading element & assert the text", async () => {
     //Open URL
-    await browser.url("https://practice.automationbro.com");
+    // await browser.url("https://practice.automationbro.com");
+    await HomePage.open();
 
     //find heading element
-    const headingEl = await $(".elementor-widget-container h1");
+    // const headingEl = await $(".elementor-widget-container h1");
+    const headingEl = await HomePage.txtHeading;
 
     //get the text
     const headingText = await headingEl.getText();
