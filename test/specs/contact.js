@@ -7,11 +7,18 @@ describe("Contact", () => {
 
     // Fill out the input fields & click submit
     // await ContactPage.submitForm('Test Name', 'test@mail.com', '123456789', 'This is a test message');
+    // await ContactPage.submitForm(
+    //   "Test Name",
+    //   "test@mail.com",
+    //   "123456789",
+    //   "This is a test message"
+    // );
+
     await ContactPage.submitForm(
-      "Test Name",
-      "test@mail.com",
-      "123456789",
-      "This is a test message"
+      faker.name.findName(),
+      faker.internet.email(),
+      faker.phone.phoneNumber(),
+      faker.lorem.paragraphs(2)
     );
 
     // Assert the success message
